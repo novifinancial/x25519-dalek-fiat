@@ -13,16 +13,16 @@
 
 #[macro_use]
 extern crate criterion;
-extern crate curve25519_dalek;
+extern crate curve25519_dalek_fiat;
 extern crate rand_core;
-extern crate x25519_dalek;
+extern crate x25519_dalek_fiat;
 
 use criterion::Criterion;
 
 use rand_core::OsRng;
 
-use x25519_dalek::EphemeralSecret;
-use x25519_dalek::PublicKey;
+use x25519_dalek_fiat::EphemeralSecret;
+use x25519_dalek_fiat::PublicKey;
 
 fn bench_diffie_hellman(c: &mut Criterion) {
     let bob_secret = EphemeralSecret::new(&mut OsRng);

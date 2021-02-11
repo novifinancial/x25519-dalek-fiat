@@ -14,12 +14,11 @@
 //! This implements x25519 key exchange as specified by Mike Hamburg
 //! and Adam Langley in [RFC7748](https://tools.ietf.org/html/rfc7748).
 
-use curve25519_dalek::constants::ED25519_BASEPOINT_TABLE;
-use curve25519_dalek::montgomery::MontgomeryPoint;
-use curve25519_dalek::scalar::Scalar;
+use curve25519_dalek_fiat::{
+    constants::ED25519_BASEPOINT_TABLE, montgomery::MontgomeryPoint, scalar::Scalar,
+};
 
-use rand_core::CryptoRng;
-use rand_core::RngCore;
+use rand_core::{CryptoRng, RngCore};
 
 use zeroize::Zeroize;
 
@@ -100,7 +99,7 @@ impl<'a> From<&'a EphemeralSecret> for PublicKey {
 /// additional guarantees provided by [`EphemeralSecret`] are not helpful or would cause duplicate
 /// code paths.  In this case, it may be useful to
 /// ```rust,ignore
-/// use x25519_dalek::StaticSecret as SecretKey;
+/// use x25519_dalek_fiat::StaticSecret as SecretKey;
 /// ```
 /// since the only difference between the two is that [`StaticSecret`] does not enforce at
 /// compile-time that the key is only used once.
@@ -226,8 +225,6 @@ impl From<AllowUnreducedScalarBytes> for Scalar {
 mod test {
     use super::*;
 
-    use rand_core::OsRng;
-
     #[test]
     fn byte_basepoint_matches_edwards_scalar_mul() {
         let mut scalar_bytes = [0x37; 32];
@@ -347,7 +344,7 @@ mod test {
     #[test]
     #[ignore] // Run only if you want to burn a lot of CPU doing 1,000,000 DH operations
     fn rfc7748_ladder_test2() {
-        use curve25519_dalek::constants::X25519_BASEPOINT;
+        use curve25519_dalek_fiat::constants::X25519_BASEPOINT;
 
         let mut k: [u8; 32] = X25519_BASEPOINT.0;
         let mut u: [u8; 32] = X25519_BASEPOINT.0;

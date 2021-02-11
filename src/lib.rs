@@ -25,7 +25,7 @@
 //! Note that docs will only build on nightly Rust until
 //! `feature(external_doc)` is stabilized.
 
-extern crate curve25519_dalek;
+extern crate curve25519_dalek_fiat;
 
 extern crate rand_core;
 
