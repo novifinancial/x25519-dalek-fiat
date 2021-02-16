@@ -4,6 +4,14 @@ A pure-Rust implementation of x25519 elliptic curve Diffie-Hellman key exchange,
 with curve operations provided by
 [curve25519-dalek](https://github.com/dalek-cryptography/curve25519-dalek).
 
+# About
+
+This is a thin fork of the [`x25519-dalek`][x25519-dalek] project, and its main difference is replacing the 
+original [`curve25519-dalek`][curve25519-dalek] dependency with 
+[`curve25519-dalek-fiat`][curve25519-dalek-fiat]. This allows using a formally verified
+backend supplied by the [`fiat-crypto`][fiat crypto] project, where 
+primitive curve operations are extracted from Coq proofs of arithmetic correctness.
+
 This crate provides two levels of API: a bare byte-oriented `x25519`
 function which matches the function specified in [RFC7748][rfc7748], as
 well as a higher-level Rust API for static and ephemeral Diffie-Hellman.
@@ -128,3 +136,7 @@ copyright © Amy Wibowo ([@sailorhg](https://twitter.com/sailorhg))
   `x25519-dalek` for key agreement
 
 [crypto_box]: https://github.com/RustCrypto/AEADs/tree/master/crypto_box
+[curve25519-dalek]: https://github.com/dalek-cryptography/curve25519-dalek
+[curve25519-dalek-fiat]: https://github.com/novifinancial/curve25519-dalek-fiat
+[x25519-dalek]: https://github.com/dalek-cryptography/x25519-dalek
+[fiat crypto]: https://github.com/mit-plv/fiat-crypto
