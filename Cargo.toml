@@ -7,9 +7,9 @@ edition = "2018"
 # - update CHANGELOG
 version = "0.1.0"
 authors = [
-    "Isis Lovecruft <isis@patternsinthevoid.net>",
-    "DebugSteven <debugsteven@gmail.com>",
-    "Henry de Valence <hdevalence@hdevalence.ca>",
+    "opensource+ed25519-dalek-fiat@fb.com",
+    "Konstantinos Chalkias <kostascrypto@fb.com>",
+    "François Garillot <francois@garillot.net>",
 ]
 readme = "README.md"
 license = "BSD-3-Clause"
