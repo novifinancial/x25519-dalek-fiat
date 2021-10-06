@@ -5,7 +5,7 @@ edition = "2018"
 # - update version in README.md
 # - update html_root_url
 # - update CHANGELOG
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     "opensource+ed25519-dalek-fiat@fb.com",
     "Konstantinos Chalkias <kostascrypto@fb.com>",
@@ -34,7 +34,7 @@ rand_core = { version = "0.6", default-features = false }
 # `serde` is renamed to `our_serde` in order to avoid a name collision between
 # importing the serde dependency and enabling the curve25519-dalek/serde feature
 our_serde = { package = "serde", version = "1", default-features = false, optional = true, features = ["derive"] }
-zeroize = { version = "1", default-features = false, features = ["zeroize_derive"] }
+zeroize = { version = "1.4.2", default-features = false, features = ["zeroize_derive"] }
 
 [dev-dependencies]
 bincode = "1"
