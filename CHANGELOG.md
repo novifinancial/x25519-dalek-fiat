@@ -6,3 +6,7 @@ Entries are listed in reverse chronological order.
 
 * Begin fork from v1.1.0 of x25519-dalek
 * update to rand_core v0.6.0
+
+## 0.1.1
+
+* Update zeroize dependency to 1.4.2 due to RUSTSEC-2021-0115
